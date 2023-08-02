@@ -1,0 +1,20 @@
+{
+  "name": "web-dev-autograder",
+  "version": "0.0.1",
+  "description": "A framework for automatically grading Web Development coursework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "transform": {
+    "\\.[jt]sx?$": "babel-jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.6.2"
+  },
+  "dependencies": {
+    "@jest/globals": "^29.6.2"
+  }
+}

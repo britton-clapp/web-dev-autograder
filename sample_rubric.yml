@@ -1,0 +1,13 @@
+---
+name: Test Assignment
+description: Make a simple webpage.
+rules:
+  "at least one paragraph":
+    rule: 1+ p element
+    value: 3 points
+  "at least one image":
+    rule: 1+ img element
+    value: 3 points
+  "one level one heading":
+    rule: 1 h1 element
+    value: 3 points
