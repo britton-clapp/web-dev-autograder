@@ -1,4 +1,4 @@
-function contains_x_of_group(text, quantity = 1, group = ['p', 'img']) {
+function contains_x_of_group(text, count = 1, group = ['p', 'img']) {
   // @TODO: Handle "one of each item" requirement vs "one from this group"
   const valid = false;
   return valid;
