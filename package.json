@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@jest/globals": "^29.6.2",
-    "html-validate": "^8.1.0"
+    "commander": "^11.0.0",
+    "html-validate": "^8.1.0",
+    "js-yaml": "^4.1.0"
   }
 }

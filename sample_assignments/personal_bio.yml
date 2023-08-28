@@ -1,0 +1,28 @@
+---
+name: Personal Bio
+description: Make a simple webpage.
+rules:
+  "one level one heading":
+    rule: 1 h1 element
+    value: 3 points
+  "at least one level two heading":
+    rule: 1+ h2 element
+    value: 3 points
+  "at least one of either bold or strong elements":
+    rule: 1+ (b, strong) elements
+    value: 3 points
+  "at least one of either italic or emphasis elements":
+    rule: 1+ (i, em) elements
+    value: 3 points
+  "at least one horizontal rule":
+    rule: 1+ hr element
+    value: 3 points
+  "at least one of either unordered list or ordered list elements":
+    rule: 1+ (ul, ol) elements
+    value: 3 points
+  "at least one link":
+    rule: 1+ a element
+    value: 3 points
+  "one doctype declaration":
+    rule: 1 doctype element
+    value: 3 points

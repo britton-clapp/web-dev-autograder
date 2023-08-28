@@ -1,0 +1,7 @@
+---
+name: Just One H1 Element
+description: Checks to make sure that the submission has a single h1 element.
+rules:
+  "one level one heading":
+    rule: 1 h1 element
+    value: 3 points
