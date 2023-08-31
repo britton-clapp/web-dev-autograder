@@ -1,5 +1,5 @@
 const commander = require('commander');
-const grader = require("engine/grader")
+const grader = require("./engine/grader")
 
 commander
     .version('0.0.0', '-v, --version')
@@ -11,8 +11,13 @@ commander
 
 const options = commander.opts();
 
-const rubric = (options.rubric ? 'Rubric is present.' : 'Rubric is not present.');
-const submission = (options.submission ? 'Submission is present.' : 'Submission is not present.');
+const rubric = options.rubric;
+const submission = options.submission;
+
+if (!rubric || !submission) {
+    console.log("Rubric and submission are both required.");
+    process.exit(1);
+}
 
 console.log('Rubric:', `${options.rubric}`);
 console.log('Submission:', `${options.submission}`);
