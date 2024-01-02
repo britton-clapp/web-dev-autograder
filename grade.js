@@ -23,3 +23,7 @@ console.log('Rubric:', `${options.rubric}`);
 console.log('Submission:', `${options.submission}`);
 
 const results = grader.grade(rubric, submission);
+
+
+// @TODO: Display results. Is this where JUNIT output goes?
+console.log(JSON.stringify(results, null, 4));
