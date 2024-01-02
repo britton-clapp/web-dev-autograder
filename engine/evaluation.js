@@ -6,4 +6,4 @@ class Evaluation {
 
 }
 
-export default Evaluation;
+module.exports.Evaluation = Evaluation;
