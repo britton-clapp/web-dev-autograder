@@ -26,3 +26,17 @@ rules:
   "contains one doctype tag":
     rule: 1 doctype element
     value: 2 points
+  "contains a ul or ol element":
+    rule: 1 (ul,ol) element
+    value: 2 points
+  "contains two or more li elements":
+    rule: 2 li elements
+    value: 2 points
+  "contains one a element":
+    rule: a element meets requirements
+    requirements:
+      "has an src attribute":
+        value: 1 point
+      "src attribute is an absolute url":
+        value: 1 point
+    value: 2 points
