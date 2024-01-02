@@ -43,7 +43,7 @@ function map_rule_to_function(name, rule, submission) {
     let score = 0;
 
     // Convert human-readable "points" to a number. Modify the following to allow for something other than "points".
-    let numericValue = rule.value.replace(' points', '');
+    let numericValue = rule.value.replace(/ points?/, '');
     let matches = rule.rule.match(/([0-9]*) ([a-z0-9]*) elements?/);
     if (matches) {
         const result = contains_element(submission, matches[2], matches[1])

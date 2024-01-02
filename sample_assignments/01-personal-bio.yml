@@ -1,0 +1,28 @@
+---
+name: Personal Bio
+description: Looks for a variety of HTML tags
+rules:
+  "contains a title tag":
+    rule: 1 title element
+    value: 1 points
+  "contains one h1 element":
+    rule: 1 h1 element
+    value: 2 points
+  "contains one h2 element":
+    rule: 1 h2 element
+    value: 2 points
+  "contains at least two paragraph elements":
+    rule: 2 p elements
+    value: 1 points
+  "contains one strong element":
+    rule: 1 strong element
+    value: 2 points
+  "contains one em element":
+    rule: 1 em element
+    value: 2 points
+  "contains one hr element":
+    rule: 1 hr element
+    value: 2 points
+  "contains one doctype tag":
+    rule: 1 doctype element
+    value: 2 points

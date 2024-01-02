@@ -36,4 +36,33 @@ describe('should correctly count elements in strings of html text', () => {
       </html>`;
     expect(html.contains_element(text, 'h1')).toBe(1);
   });
+
+  test('count a single h1 element with weird whitespace and an attribute', () => {
+    const text = `<!DOCTYPE html>
+      <html>
+      <body>
+      
+      <h1  alt="" >A Heading</h1>
+      
+      </body>
+      </html>`;
+    expect(html.contains_element(text, 'h1')).toBe(1);
+  });
+
+  test('count a single h1 element deeply nested', () => {
+    const text = `<!DOCTYPE html>
+      <html>
+      <body>
+      <div>
+        <div>
+          <section>
+            <h1>A Heading</h1>
+          </section>
+        </div>
+      </div>
+      
+      </body>
+      </html>`;
+    expect(html.contains_element(text, 'h1')).toBe(1);
+  });
 });
