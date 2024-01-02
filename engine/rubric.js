@@ -6,6 +6,8 @@ function parse_rubric(rubric_file_path) {
         console.log(exception);
     }
 
+    // @TODO: Need to allow rules to be grouped into sections!
+
     let rules = []; // @TODO: This needs to be a `rules` object
 
     rules = yaml.load(fs.readFileSync(rubric_file_path, 'utf8'), {onWarning: onWarning});
