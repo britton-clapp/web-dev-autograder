@@ -17,16 +17,19 @@ function load_submission(submission_path) {
 }
 
 function check_rules(rules, submission) {
-    let response = {};
-
-    // @TODO: Auto-fail if rules is not an array of objects
-    response.rules = rules;
-    response.score = 0;
+    let response = {
+        score: 0,
+        rules: rules,
+    };
+    if (rules.constructor !== Object) {
+        response.errors = ["Rules is not an object."];
+        response.score = null; // We did not evaluate any rules, so no valid score.
+        return response;
+    }
+    // @TODO: Auto-fail if rules array contains something that is not an object.
 
     for (let [name, rule] of Object.entries(rules.rules)) {
         // @TODO: Result object should have everything we need for output:
-        // - rules
-        // - score
         // - submitter id?
         let result = map_rule_to_function(name, rule, submission);
         response.score += Number(result);
