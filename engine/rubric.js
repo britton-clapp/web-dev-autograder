@@ -1,5 +1,6 @@
 const yaml = require('js-yaml');
 const fs   = require('fs');
+const {ValidationError} = require("../exceptions/validation_error");
 
 function parse_rubric(rubric_file_path) {
     function onWarning(exception) {
@@ -11,8 +12,8 @@ function parse_rubric(rubric_file_path) {
     let rules = []; // @TODO: This needs to be a `rules` object
 
     rules = yaml.load(fs.readFileSync(rubric_file_path, 'utf8'), {onWarning: onWarning});
-    if (!rules) {
-        throw new Error(); // @TODO: Throw a custom exception here and handle it!
+    if (!rules || !rules.description) {
+        throw new ValidationError();
     }
     return rules;
 }

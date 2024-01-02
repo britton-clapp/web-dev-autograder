@@ -1,5 +1,9 @@
-const evaluation = {
-    score: 0,
-    rules: null,
+class Evaluation {
+    constructor() {
+        this.score = 0;
+        this.rules = null;
+    }
 
-};
+}
+
+export default Evaluation;

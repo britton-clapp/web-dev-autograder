@@ -6,6 +6,8 @@
  * @returns {boolean}
  */
 function implements_property(text, property_name, count = 1) {
+  // @TODO: Maybe a better regex to detect properties within rules:
+  // \w*([\w\s\.\#]+){[\w\s:;]*(color:[\w\s]*);?[\w\s\.\#;:%]*}
   const regexString = `({\\s*|;)\\s*${property_name}:`; // slashes are escaped!
   const regex = new RegExp(regexString, "gm")
   const regexTest = text.match(regex);

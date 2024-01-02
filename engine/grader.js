@@ -3,6 +3,7 @@ const {contains_element} = require("../rules/html/contains_element");
 const {contains_x_of_group} = require("../rules/html/contains_x_of_group");
 const yaml = require("js-yaml");
 const fs = require("fs");
+const Evaluation = require("./evaluation");
 
 function grade(rubric_file_path, submission_path) {
     const rules = parse_rubric(rubric_file_path);
@@ -17,6 +18,8 @@ function load_submission(submission_path) {
 }
 
 function check_rules(rules, submission) {
+    // let response = new Evaluation(); // @TODO: Add rules and submission to evaluation object?
+
     let response = {
         score: 0,
         rules: rules,

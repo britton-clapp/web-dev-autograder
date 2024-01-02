@@ -1,0 +1,6 @@
+---
+name: Missing Rule Description
+description: Checks to make sure that the submission has a single h1 element.
+rules:
+  - rule: 1 h1 element
+  - value: 3 points
