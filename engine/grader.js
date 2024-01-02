@@ -61,6 +61,8 @@ function map_rule_to_function(name, rule, submission) {
         // result = check_rule();
     }
 
+    // @TODO: Need to account for an element that "meets requirements", where requirements is a list of n rules.
+
     return score;
 }
 
