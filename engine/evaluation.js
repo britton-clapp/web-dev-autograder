@@ -1,6 +1,6 @@
 class Evaluation {
     constructor() {
-        this.score = 0;
+        this.score = null;
         this.rules = null;
     }
 

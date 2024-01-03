@@ -4,6 +4,8 @@ const {contains_x_of_group} = require("../rules/html/contains_x_of_group");
 const yaml = require("js-yaml");
 const fs = require("fs");
 const Evaluation = require("./evaluation");
+const {contains_string, does_not_contain_string} = require("../rules/generic/contains_string");
+const {matches_regex, does_not_match_regex} = require("../rules/generic/matches_regex");
 
 function grade(rubric_file_path, submission_path) {
     const rules = parse_rubric(rubric_file_path);
@@ -60,7 +62,35 @@ function map_rule_to_function(name, rule, submission) {
     matches = rule.rule.match(/([0-9]*)\+ ([a-z0-9]*) elements?/);
     if (matches) {
         const result = contains_x_of_group(submission, matches[2], [matches[1]])
-        score = result ? rule.score : 0;
+        score = result ? numericValue : 0;
+        // result = check_rule();
+    }
+
+    matches = rule.rule.match(/contains string \/(.*)\//);
+    if (matches) {
+        const result = contains_string(submission, matches[2])
+        score = result ? numericValue : 0;
+        // result = check_rule();
+    }
+
+    matches = rule.rule.match(/does not contain string \/(.*)\//);
+    if (matches) {
+        const result = does_not_contain_string(submission, matches[2])
+        score = result ? numericValue : 0;
+        // result = check_rule();
+    }
+
+    matches = rule.rule.match(/matches regex \/(.*)\//);
+    if (matches) {
+        const result = matches_regex(submission, matches[2])
+        score = result ? numericValue : 0;
+        // result = check_rule();
+    }
+
+    matches = rule.rule.match(/does not match regex \/(.*)\//);
+    if (matches) {
+        const result = does_not_match_regex(submission, matches[2])
+        score = result ? numericValue : 0;
         // result = check_rule();
     }
 
