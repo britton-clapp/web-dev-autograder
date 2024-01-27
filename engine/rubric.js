@@ -2,6 +2,11 @@ const yaml = require('js-yaml');
 const fs   = require('fs');
 const {ValidationError} = require("../exceptions/validation_error");
 
+/**
+ * Parse a rubric and return the rules as an iterable object.
+ * @param rubric_file_path
+ * @returns {{description}|*}
+ */
 function parse_rubric(rubric_file_path) {
     function onWarning(exception) {
         console.log(exception);

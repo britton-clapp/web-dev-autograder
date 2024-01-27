@@ -7,6 +7,15 @@ const Evaluation = require("./evaluation");
 const {contains_string, does_not_contain_string} = require("../rules/generic/contains_string");
 const {matches_regex, does_not_match_regex} = require("../rules/generic/matches_regex");
 
+/**
+ * Grades a submission based on a rubric.
+ *
+ * This is the main entry point to the autograder.
+ *
+ * @param rubric_file_path
+ * @param submission_path
+ * @returns {{score: number, rules}}
+ */
 function grade(rubric_file_path, submission_path) {
     const rules = parse_rubric(rubric_file_path);
     const submission = load_submission(submission_path);
@@ -14,14 +23,26 @@ function grade(rubric_file_path, submission_path) {
     return response;
 }
 
+/**
+ * Takes a submission and loads it into memory.
+ * @param submission_path
+ * @returns {string}
+ */
 function load_submission(submission_path) {
     // @TODO: Clone a git repo?
     // @TODO: Download from a URL without changing domains?
-    
+
+    // @TODO: Rework this to handle multiple files.
     let submission_text = fs.readFileSync(submission_path, 'utf8');
     return submission_text;
 }
 
+/**
+ * Iterates over a series of rules and checks them against a submission.
+ * @param rules
+ * @param submission
+ * @returns {{score: number, rules}}
+ */
 function check_rules(rules, submission) {
     // let response = new Evaluation(); // @TODO: Add rules and submission to evaluation object?
 
@@ -46,10 +67,27 @@ function check_rules(rules, submission) {
     return response;
 }
 
+/**
+ * Checks a submission against a single rule.
+ *
+ * @TODO: Should probably return an integer.
+ * @TODO: Should we support floats?
+ * @TODO: Should the score be added directly to the result object?
+ * @param rule
+ * @param submission
+ * @returns {boolean}
+ */
 function check_rule(rule, submission) {
     return true;
 }
 
+/**
+ * Parses a human-readable rule from a rubric and maps it to a function that evaluates the rule.
+ * @param name
+ * @param rule
+ * @param submission
+ * @returns {number}
+ */
 function map_rule_to_function(name, rule, submission) {
     let score = 0;
 
