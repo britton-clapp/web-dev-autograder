@@ -15,6 +15,9 @@ function grade(rubric_file_path, submission_path) {
 }
 
 function load_submission(submission_path) {
+    // @TODO: Clone a git repo?
+    // @TODO: Download from a URL without changing domains?
+    
     let submission_text = fs.readFileSync(submission_path, 'utf8');
     return submission_text;
 }
